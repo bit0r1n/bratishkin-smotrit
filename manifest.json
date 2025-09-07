@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "БРАТИШКИН СМОТРИТ",
+  "version": "1.0",
+  "description": "Братишкин для твоего ютуба",
+  "permissions": [ "scripting", "storage" ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "*://www.youtube.com/*" ],
+      "js": [ "bratishkin.js" ],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "faces/*.png", "reactions/*.mp4" ],
+      "matches": [ "*://*/*" ]
+    }
+  ],
+  "icons": {
+    "96": "icon-96.png"
+  }
+}
