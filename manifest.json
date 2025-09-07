@@ -22,5 +22,10 @@
   ],
   "icons": {
     "96": "icon-96.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "bratishkin-smotrit@bitor.in"
+    }
   }
 }

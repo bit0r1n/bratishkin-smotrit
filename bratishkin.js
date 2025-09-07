@@ -41,6 +41,23 @@ function titleContainsIgnoredWord(title, ignoreList) {
 // РЕАКЦИИ
 
 const reactionsRange = [ 1, 4 ]
+let reactionQueue = []
+
+function getNextReaction() {
+  if (reactionQueue.length === 0) {
+    reactionQueue = Array.from(
+      { length: reactionsRange[1] - reactionsRange[0] + 1 },
+      (_, i) => reactionsRange[0] + i
+    )
+
+    for (let i = reactionQueue.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[reactionQueue[i], reactionQueue[j]] = [reactionQueue[j], reactionQueue[i]]
+    }
+  }
+
+  return reactionQueue.pop()
+}
 
 function createReactionOverlayInsidePlayer() {
   const player = document.querySelector('#movie_player')
@@ -117,7 +134,6 @@ function scheduleNextReaction(mainVideo, overlay) {
   if (!config.reactions.enabled) return
 
   const delay = getRandomDelay()
-  console.log('Scheduling next reaction...', delay, config.reactions)
   setTimeout(() => {
     if (!config.reactions.enabled) return
     if (mainVideo.paused) {
@@ -134,7 +150,8 @@ function scheduleNextReaction(mainVideo, overlay) {
     }
 
 
-    const reactionSrc = getExtensionURL(`reactions/${Math.floor(Math.random() * reactionsRange[1]) + reactionsRange[0]}.mp4`)
+    const reactionIndex = getNextReaction()
+    const reactionSrc = getExtensionURL(`reactions/${reactionIndex}.mp4`)
     const { img, video } = overlay
 
     mainVideo.pause()
