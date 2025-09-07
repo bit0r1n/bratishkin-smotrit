@@ -59,7 +59,7 @@ function createReactionOverlayInsidePlayer() {
   wrapper.style.overflow = 'hidden'
 
   const img = document.createElement('img')
-  img.src = chrome.runtime.getURL('faces/afk.png')
+  img.src = getExtensionURL('faces/afk.png')
   img.style.width = '100%'
   img.style.height = 'auto'
   img.style.display = 'block'
