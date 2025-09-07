@@ -11,18 +11,18 @@
   Возможно фильтровать видео по названию видео, которые братишкин не посмотрел
   <details>
     <summary>Посмотреть реализацию</summary>
-    <img src="./_media/thumbnails.jpeg" alt="Превью реализация" />
+    <img src="./_media/thumbnails.jpeg" alt="Превью реализация" width="450" />
   </details>
 * Реакция
   Возможно настраивать интервал когда братишкин будет стопать (минимальный и максимальный интервал)
   Так же возможно фильтровать по названию видео, где не будет реакции
   <details>
     <summary>Посмотреть реализацию</summary>
-    <video src="./_media/reactions.mp4" alt="Реакция реализация" />
+    <video src="https://github.com/user-attachments/assets/7d802159-b9c4-43a2-a4d1-219e35e898bc" />
   </details>
 * Настройка
   Возможность настройки всего выше перечисленного, открывается при нажатии на расширение в списке расширений
   <details>
     <summary>Посмотреть реализацию</summary>
-    <img src="./_media/settings.png" alt="Настройки реализация" />
+    <img src="./_media/settings.png" alt="Настройки реализация" width="250" />
   </details>
