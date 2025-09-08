@@ -14,7 +14,7 @@ function getDefaultConfig() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  chrome.storage.local.get('bratishkinConfig', data => {
+  (chrome || browser).storage.local.get('bratishkinConfig', data => {
     const cfg = data.bratishkinConfig || getDefaultConfig()
     loadConfig(cfg)
   })
@@ -50,14 +50,14 @@ function saveConfig() {
   if (cfg.reactions.minDelay < 1 || cfg.reactions.minDelay > 60) return showStatus('Минимальный интервал реакции должен быть от 1 секунды до 60 секунд')
   if (cfg.reactions.maxDelay < 1 || cfg.reactions.maxDelay > 60) return showStatus('Максимальный интервал реакции должен быть от 1 секунды до 60 секунд')
 
-  chrome.storage.local.set({ bratishkinConfig: cfg }, () => {
+  ;(chrome || browser).storage.local.set({ bratishkinConfig: cfg }, () => {
     showStatus('Настройки сохранены')
   })
 }
 
 function resetConfig() {
   const defaults = getDefaultConfig()
-  chrome.storage.local.set({ bratishkinConfig: defaults }, () => {
+  ;(chrome || browser).storage.local.set({ bratishkinConfig: defaults }, () => {
     loadConfig(defaults)
     showStatus('Настройки сброшены')
   })

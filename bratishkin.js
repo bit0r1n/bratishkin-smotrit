@@ -9,9 +9,9 @@ function getExtensionURL(path) {
   return path
 }
 
-let config = null;
+let config = null
 
-(chrome || browser).storage.local.get('bratishkinConfig', data => {
+;(chrome || browser).storage.local.get('bratishkinConfig', data => {
   config = data.bratishkinConfig || {
     reactions: {
       enabled: true,
@@ -26,9 +26,9 @@ let config = null;
   }
 
   initScripts()
-});
+})
 
-(chrome || browser).storage.onChanged.addListener(changes => {
+;(chrome || browser).storage.onChanged.addListener(changes => {
   if (changes.bratishkinConfig) {
     config = changes.bratishkinConfig.newValue
   }
