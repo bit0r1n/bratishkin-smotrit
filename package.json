@@ -1,0 +1,28 @@
+{
+  "name": "bratishkin-smotrit",
+  "version": "1.1.0",
+  "description": "БРАТИШКИН СМОТРИТ",
+  "main": "dist/bratishkin.js",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bit0r1n/bratishkin-smotrit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/bit0r1n/bratishkin-smotrit/issues"
+  },
+  "homepage": "https://github.com/bit0r1n/bratishkin-smotrit#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.1.11",
+    "@types/firefox-webext-browser": "^120.0.4",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
+  }
+}

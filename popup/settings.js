@@ -13,8 +13,20 @@ function getDefaultConfig() {
   }
 }
 
+function getStorage() {
+  return (globalThis.chrome ?? globalThis.browser)?.storage?.local
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-  (chrome || browser).storage.local.get('bratishkinConfig', data => {
+  const storage = getStorage()
+  
+  if (!storage) {
+    showStatus('Ошибко: Хранилище недоступно')
+    console.error('Storage API not available')
+    return
+  }
+
+  storage.get('bratishkinConfig', data => {
     const cfg = data.bratishkinConfig || getDefaultConfig()
     loadConfig(cfg)
   })
@@ -34,6 +46,14 @@ function loadConfig(cfg) {
 }
 
 function saveConfig() {
+  const storage = getStorage()
+  
+  if (!storage) {
+    showStatus('Ошибко: Хранилище недоступно')
+    console.error('Storage API not available')
+    return
+  }
+
   const cfg = {
     reactions: {
       enabled: document.getElementById('reactions-enabled').checked,
@@ -50,14 +70,22 @@ function saveConfig() {
   if (cfg.reactions.minDelay < 1 || cfg.reactions.minDelay > 60) return showStatus('Минимальный интервал реакции должен быть от 1 секунды до 60 секунд')
   if (cfg.reactions.maxDelay < 1 || cfg.reactions.maxDelay > 60) return showStatus('Максимальный интервал реакции должен быть от 1 секунды до 60 секунд')
 
-  ;(chrome || browser).storage.local.set({ bratishkinConfig: cfg }, () => {
+  storage.set({ bratishkinConfig: cfg }, () => {
     showStatus('Настройки сохранены')
   })
 }
 
 function resetConfig() {
+  const storage = getStorage()
+  
+  if (!storage) {
+    showStatus('Ошибко: Хранилище недоступно')
+    console.error('Storage API not available')
+    return
+  }
+
   const defaults = getDefaultConfig()
-  ;(chrome || browser).storage.local.set({ bratishkinConfig: defaults }, () => {
+  storage.set({ bratishkinConfig: defaults }, () => {
     loadConfig(defaults)
     showStatus('Настройки сброшены')
   })
