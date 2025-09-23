@@ -60,7 +60,7 @@ function createReactionOverlayInsidePlayer(): OverlayWrapper | null {
   video.muted = true
   video.playsInline = true
 
-  wrapper.appendChild(img)
+  wrapper.appendChild(smotrit)
   wrapper.appendChild(video)
   player.appendChild(wrapper)
 
