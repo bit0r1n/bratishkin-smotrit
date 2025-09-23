@@ -64,7 +64,7 @@ function createReactionOverlayInsidePlayer(): OverlayWrapper | null {
   wrapper.appendChild(video)
   player.appendChild(wrapper)
 
-  return { wrapper, img, video }
+  return { wrapper, img: smotrit, video }
 }
 
 function scheduleNextReaction(mainVideo: HTMLVideoElement, overlay: OverlayWrapper) {
