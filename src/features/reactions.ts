@@ -47,10 +47,12 @@ function createReactionOverlayInsidePlayer(): OverlayWrapper | null {
   wrapper.style.zIndex = '10'
   wrapper.style.overflow = 'hidden'
 
-  const img = document.createElement('img')
-  img.src = getExtensionURL('faces/afk.png')
-  img.style.width = '100%'
-  img.style.display = 'block'
+  const smotrit = document.createElement('video')
+  smotrit.src = getExtensionURL('faces/bratishkin.webm')
+  smotrit.style.width = '100%'
+  smotrit.style.display = 'block'
+  smotrit.loop = true
+  smotrit.playsInline = true
 
   const video = document.createElement('video')
   video.style.width = '100%'
