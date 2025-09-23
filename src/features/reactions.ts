@@ -4,7 +4,7 @@ import { getRandomDelay } from '../utils/random'
 
 interface OverlayWrapper {
   wrapper: HTMLElement
-  img: HTMLImageElement
+  img: HTMLVideoElement
   video: HTMLVideoElement
 }
 
@@ -53,6 +53,7 @@ function createReactionOverlayInsidePlayer(): OverlayWrapper | null {
   smotrit.style.display = 'block'
   smotrit.loop = true
   smotrit.playsInline = true
+  smotrit.play()
 
   const video = document.createElement('video')
   video.style.width = '100%'
