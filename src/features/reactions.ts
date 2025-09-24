@@ -4,7 +4,7 @@ import { getRandomDelay } from '../utils/random'
 
 interface OverlayWrapper {
   wrapper: HTMLElement
-  img: HTMLImageElement
+  img: HTMLVideoElement
   video: HTMLVideoElement
 }
 
@@ -47,10 +47,13 @@ function createReactionOverlayInsidePlayer(): OverlayWrapper | null {
   wrapper.style.zIndex = '10'
   wrapper.style.overflow = 'hidden'
 
-  const img = document.createElement('img')
-  img.src = getExtensionURL('faces/afk.png')
-  img.style.width = '100%'
-  img.style.display = 'block'
+  const smotrit = document.createElement('video')
+  smotrit.src = getExtensionURL('faces/bratishkin.webm')
+  smotrit.style.width = '100%'
+  smotrit.style.display = 'block'
+  smotrit.loop = true
+  smotrit.playsInline = true
+  smotrit.play()
 
   const video = document.createElement('video')
   video.style.width = '100%'
@@ -58,11 +61,11 @@ function createReactionOverlayInsidePlayer(): OverlayWrapper | null {
   video.muted = true
   video.playsInline = true
 
-  wrapper.appendChild(img)
+  wrapper.appendChild(smotrit)
   wrapper.appendChild(video)
   player.appendChild(wrapper)
 
-  return { wrapper, img, video }
+  return { wrapper, img: smotrit, video }
 }
 
 function scheduleNextReaction(mainVideo: HTMLVideoElement, overlay: OverlayWrapper) {

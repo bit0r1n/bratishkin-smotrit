@@ -16,7 +16,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": [ "faces/*.png", "reactions/*.mp4" ],
+      "resources": [ "faces/*.png", "reactions/*.mp4", "faces/*.webm" ],
       "matches": [ "*://*/*" ]
     }
   ],
