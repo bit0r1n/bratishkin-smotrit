@@ -5,7 +5,8 @@
   "main": "dist/bratishkin.js",
   "scripts": {
     "build": "vite build",
-    "dev": "vite build --watch"
+    "dev": "vite build --watch",
+    "package": "npm run build && mkdir -p dist-package && zip -r dist-package/bratishkin-smotrit.zip dist faces icons popup reactions manifest.json"
   },
   "repository": {
     "type": "git",
