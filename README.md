@@ -10,8 +10,8 @@
 
 ### Через магазины расширений
 
-#### Chrome
-У меня нет денег на аккаунт разработчика
+#### Chrome (наверное и производные)
+[Страница в магазине Chrome](https://chromewebstore.google.com/detail/kgghmfoojadlfjbcgmifkhlefapiglki)
 
 #### Firefox
 [Страница в магазине дополнений](https://addons.mozilla.org/ru/firefox/addon/bratishkin-smotrit/)
